@@ -13,25 +13,25 @@ namespace Microsoft.SharePoint.Client.NetCore
     [ScriptType("SP.Web", ServerTypeId = "{a489add2-5d3a-4de8-9445-49259462dceb}")]
     public class Web : SecurableObject
     {
-        //[Remote]
-        //public AlertCollection Alerts
-        //{
-        //    get
-        //    {
-        //        object obj;
-        //        AlertCollection alertCollection;
-        //        if (base.ObjectData.ClientObjectProperties.TryGetValue("Alerts", out obj))
-        //        {
-        //            alertCollection = (AlertCollection)obj;
-        //        }
-        //        else
-        //        {
-        //            alertCollection = new AlertCollection(base.Context, new ObjectPathProperty(base.Context, base.Path, "Alerts"));
-        //            base.ObjectData.ClientObjectProperties["Alerts"] = alertCollection;
-        //        }
-        //        return alertCollection;
-        //    }
-        //}
+        [Remote]
+        public AlertCollection Alerts
+        {
+            get
+            {
+                object obj;
+                AlertCollection alertCollection;
+                if (base.ObjectData.ClientObjectProperties.TryGetValue("Alerts", out obj))
+                {
+                    alertCollection = (AlertCollection)obj;
+                }
+                else
+                {
+                    alertCollection = new AlertCollection(base.Context, new ObjectPathProperty(base.Context, base.Path, "Alerts"));
+                    base.ObjectData.ClientObjectProperties["Alerts"] = alertCollection;
+                }
+                return alertCollection;
+            }
+        }
 
         [Remote]
         public bool AllowAutomaticASPXPageIndexing
@@ -121,25 +121,25 @@ namespace Microsoft.SharePoint.Client.NetCore
             }
         }
 
-        //[Remote]
-        //public PropertyValues AllProperties
-        //{
-        //    get
-        //    {
-        //        object obj;
-        //        PropertyValues propertyValues;
-        //        if (base.ObjectData.ClientObjectProperties.TryGetValue("AllProperties", out obj))
-        //        {
-        //            propertyValues = (PropertyValues)obj;
-        //        }
-        //        else
-        //        {
-        //            propertyValues = new PropertyValues(base.Context, new ObjectPathProperty(base.Context, base.Path, "AllProperties"));
-        //            base.ObjectData.ClientObjectProperties["AllProperties"] = propertyValues;
-        //        }
-        //        return propertyValues;
-        //    }
-        //}
+        [Remote]
+        public PropertyValues AllProperties
+        {
+            get
+            {
+                object obj;
+                PropertyValues propertyValues;
+                if (base.ObjectData.ClientObjectProperties.TryGetValue("AllProperties", out obj))
+                {
+                    propertyValues = (PropertyValues)obj;
+                }
+                else
+                {
+                    propertyValues = new PropertyValues(base.Context, new ObjectPathProperty(base.Context, base.Path, "AllProperties"));
+                    base.ObjectData.ClientObjectProperties["AllProperties"] = propertyValues;
+                }
+                return propertyValues;
+            }
+        }
 
         [Remote]
         public string AlternateCssUrl
@@ -273,25 +273,25 @@ namespace Microsoft.SharePoint.Client.NetCore
             }
         }
 
-        //[Remote]
-        //public User Author
-        //{
-        //    get
-        //    {
-        //        object obj;
-        //        User user;
-        //        if (base.ObjectData.ClientObjectProperties.TryGetValue("Author", out obj))
-        //        {
-        //            user = (User)obj;
-        //        }
-        //        else
-        //        {
-        //            user = new User(base.Context, new ObjectPathProperty(base.Context, base.Path, "Author"));
-        //            base.ObjectData.ClientObjectProperties["Author"] = user;
-        //        }
-        //        return user;
-        //    }
-        //}
+        [Remote]
+        public User Author
+        {
+            get
+            {
+                object obj;
+                User user;
+                if (base.ObjectData.ClientObjectProperties.TryGetValue("Author", out obj))
+                {
+                    user = (User)obj;
+                }
+                else
+                {
+                    user = new User(base.Context, new ObjectPathProperty(base.Context, base.Path, "Author"));
+                    base.ObjectData.ClientObjectProperties["Author"] = user;
+                }
+                return user;
+            }
+        }
 
         //[Remote]
         //public ContentTypeCollection AvailableContentTypes
@@ -401,25 +401,25 @@ namespace Microsoft.SharePoint.Client.NetCore
             }
         }
 
-        //[Remote]
-        //public User CurrentUser
-        //{
-        //    get
-        //    {
-        //        object obj;
-        //        User user;
-        //        if (base.ObjectData.ClientObjectProperties.TryGetValue("CurrentUser", out obj))
-        //        {
-        //            user = (User)obj;
-        //        }
-        //        else
-        //        {
-        //            user = new User(base.Context, new ObjectPathProperty(base.Context, base.Path, "CurrentUser"));
-        //            base.ObjectData.ClientObjectProperties["CurrentUser"] = user;
-        //        }
-        //        return user;
-        //    }
-        //}
+        [Remote]
+        public User CurrentUser
+        {
+            get
+            {
+                object obj;
+                User user;
+                if (base.ObjectData.ClientObjectProperties.TryGetValue("CurrentUser", out obj))
+                {
+                    user = (User)obj;
+                }
+                else
+                {
+                    user = new User(base.Context, new ObjectPathProperty(base.Context, base.Path, "CurrentUser"));
+                    base.ObjectData.ClientObjectProperties["CurrentUser"] = user;
+                }
+                return user;
+            }
+        }
 
         [Remote]
         public string CustomMasterUrl
@@ -907,25 +907,25 @@ namespace Microsoft.SharePoint.Client.NetCore
             }
         }
 
-        //[Remote]
-        //public WebInformation ParentWeb
-        //{
-        //    get
-        //    {
-        //        object obj;
-        //        WebInformation webInformation;
-        //        if (base.ObjectData.ClientObjectProperties.TryGetValue("ParentWeb", out obj))
-        //        {
-        //            webInformation = (WebInformation)obj;
-        //        }
-        //        else
-        //        {
-        //            webInformation = new WebInformation(base.Context, new ObjectPathProperty(base.Context, base.Path, "ParentWeb"));
-        //            base.ObjectData.ClientObjectProperties["ParentWeb"] = webInformation;
-        //        }
-        //        return webInformation;
-        //    }
-        //}
+        [Remote]
+        public WebInformation ParentWeb
+        {
+            get
+            {
+                object obj;
+                WebInformation webInformation;
+                if (base.ObjectData.ClientObjectProperties.TryGetValue("ParentWeb", out obj))
+                {
+                    webInformation = (WebInformation)obj;
+                }
+                else
+                {
+                    webInformation = new WebInformation(base.Context, new ObjectPathProperty(base.Context, base.Path, "ParentWeb"));
+                    base.ObjectData.ClientObjectProperties["ParentWeb"] = webInformation;
+                }
+                return webInformation;
+            }
+        }
 
         [Remote]
         public ResourcePath ResourcePath
@@ -1615,6 +1615,7 @@ namespace Microsoft.SharePoint.Client.NetCore
             Uri result = null;
             using (StreamReader streamReader = new StreamReader(webRequestExecutor.GetResponseStream()))
             {
+                throw new NotImplementedException("Not yet ported to .NET Core");
                 //Edited for .NET Core
                 //XmlDocument xmlDocument = SPClientUtility.LoadXml(streamReader);
                 //XmlNode xmlNode = xmlDocument.SelectSingleNode("d:GetContextWebInformation/d:WebFullUrl", SPClientUtility.ODataNamespaceManager);
@@ -1649,6 +1650,7 @@ namespace Microsoft.SharePoint.Client.NetCore
                     {
                         XmlDocument xmlDocument = SPClientUtility.LoadXml(streamReader);
                         //Edited for .NET Core
+                        throw new NotImplementedException("Not yet ported to .NET Core");
                         //XmlNode xmlNode = xmlDocument.SelectSingleNode("m:error/m:message", SPClientUtility.ODataNamespaceManager);
                         //if (xmlNode != null)
                         //{
@@ -1680,12 +1682,12 @@ namespace Microsoft.SharePoint.Client.NetCore
             }
             switch (peekedName)
             {
-                //case "Alerts":
-                //    flag = true;
-                //    reader.ReadName();
-                //    base.UpdateClientObjectPropertyType("Alerts", this.Alerts, reader);
-                //    this.Alerts.FromJson(reader);
-                //    break;
+                case "Alerts":
+                    flag = true;
+                    reader.ReadName();
+                    base.UpdateClientObjectPropertyType("Alerts", this.Alerts, reader);
+                    this.Alerts.FromJson(reader);
+                    break;
                 case "AllowAutomaticASPXPageIndexing":
                     flag = true;
                     reader.ReadName();
@@ -1726,12 +1728,12 @@ namespace Microsoft.SharePoint.Client.NetCore
                     reader.ReadName();
                     base.ObjectData.Properties["AllowSavePublishDeclarativeWorkflowForCurrentUser"] = reader.ReadBoolean();
                     break;
-                //case "AllProperties":
-                //    flag = true;
-                //    reader.ReadName();
-                //    base.UpdateClientObjectPropertyType("AllProperties", this.AllProperties, reader);
-                //    this.AllProperties.FromJson(reader);
-                //    break;
+                case "AllProperties":
+                    flag = true;
+                    reader.ReadName();
+                    base.UpdateClientObjectPropertyType("AllProperties", this.AllProperties, reader);
+                    this.AllProperties.FromJson(reader);
+                    break;
                 case "AlternateCssUrl":
                     flag = true;
                     reader.ReadName();
@@ -1766,12 +1768,12 @@ namespace Microsoft.SharePoint.Client.NetCore
                     base.UpdateClientObjectPropertyType("AssociatedVisitorGroup", this.AssociatedVisitorGroup, reader);
                     this.AssociatedVisitorGroup.FromJson(reader);
                     break;
-                //case "Author":
-                //    flag = true;
-                //    reader.ReadName();
-                //    base.UpdateClientObjectPropertyType("Author", this.Author, reader);
-                //    this.Author.FromJson(reader);
-                //    break;
+                case "Author":
+                    flag = true;
+                    reader.ReadName();
+                    base.UpdateClientObjectPropertyType("Author", this.Author, reader);
+                    this.Author.FromJson(reader);
+                    break;
                 //case "AvailableContentTypes":
                 //    flag = true;
                 //    reader.ReadName();
@@ -1810,12 +1812,12 @@ namespace Microsoft.SharePoint.Client.NetCore
                 //    reader.ReadName();
                 //    base.ObjectData.Properties["CurrentChangeToken"] = reader.Read<ChangeToken>();
                 //    break;
-                //case "CurrentUser":
-                //    flag = true;
-                //    reader.ReadName();
-                //    base.UpdateClientObjectPropertyType("CurrentUser", this.CurrentUser, reader);
-                //    this.CurrentUser.FromJson(reader);
-                //    break;
+                case "CurrentUser":
+                    flag = true;
+                    reader.ReadName();
+                    base.UpdateClientObjectPropertyType("CurrentUser", this.CurrentUser, reader);
+                    this.CurrentUser.FromJson(reader);
+                    break;
                 case "CustomMasterUrl":
                     flag = true;
                     reader.ReadName();
@@ -1975,12 +1977,12 @@ namespace Microsoft.SharePoint.Client.NetCore
                     reader.ReadName();
                     base.ObjectData.Properties["OverwriteTranslationsOnChange"] = reader.ReadBoolean();
                     break;
-                //case "ParentWeb":
-                //    flag = true;
-                //    reader.ReadName();
-                //    base.UpdateClientObjectPropertyType("ParentWeb", this.ParentWeb, reader);
-                //    this.ParentWeb.FromJson(reader);
-                //    break;
+                case "ParentWeb":
+                    flag = true;
+                    reader.ReadName();
+                    base.UpdateClientObjectPropertyType("ParentWeb", this.ParentWeb, reader);
+                    this.ParentWeb.FromJson(reader);
+                    break;
                 //case "ResourcePath":
                 //    flag = true;
                 //    reader.ReadName();
@@ -2056,12 +2058,12 @@ namespace Microsoft.SharePoint.Client.NetCore
                     reader.ReadName();
                     base.ObjectData.Properties["ShowUrlStructureForCurrentUser"] = reader.ReadBoolean();
                     break;
-                //case "SiteGroups":
-                //    flag = true;
-                //    reader.ReadName();
-                //    base.UpdateClientObjectPropertyType("SiteGroups", this.SiteGroups, reader);
-                //    this.SiteGroups.FromJson(reader);
-                //    break;
+                case "SiteGroups":
+                    flag = true;
+                    reader.ReadName();
+                    base.UpdateClientObjectPropertyType("SiteGroups", this.SiteGroups, reader);
+                    this.SiteGroups.FromJson(reader);
+                    break;
                 case "SiteLogoDescription":
                     flag = true;
                     reader.ReadName();
@@ -2152,12 +2154,12 @@ namespace Microsoft.SharePoint.Client.NetCore
                 //    base.UpdateClientObjectPropertyType("UserCustomActions", this.UserCustomActions, reader);
                 //    this.UserCustomActions.FromJson(reader);
                 //    break;
-                //case "Webs":
-                //    flag = true;
-                //    reader.ReadName();
-                //    base.UpdateClientObjectPropertyType("Webs", this.Webs, reader);
-                //    this.Webs.FromJson(reader);
-                //    break;
+                case "Webs":
+                    flag = true;
+                    reader.ReadName();
+                    base.UpdateClientObjectPropertyType("Webs", this.Webs, reader);
+                    this.Webs.FromJson(reader);
+                    break;
                 case "WebTemplate":
                     flag = true;
                     reader.ReadName();
@@ -2522,36 +2524,36 @@ namespace Microsoft.SharePoint.Client.NetCore
         //    }));
         //}
 
-        //[Remote]
-        //public User GetUserById(int userId)
-        //{
-        //    ClientRuntimeContext context = base.Context;
-        //    object obj;
-        //    Dictionary<int, User> dictionary;
-        //    if (base.ObjectData.MethodReturnObjects.TryGetValue("GetUserById", out obj))
-        //    {
-        //        dictionary = (Dictionary<int, User>)obj;
-        //    }
-        //    else
-        //    {
-        //        dictionary = new Dictionary<int, User>();
-        //        base.ObjectData.MethodReturnObjects["GetUserById"] = dictionary;
-        //    }
-        //    User user = null;
-        //    if (!context.DisableReturnValueCache && dictionary.TryGetValue(userId, out user))
-        //    {
-        //        return user;
-        //    }
-        //    user = new User(context, new ObjectPathMethod(context, base.Path, "GetUserById", new object[]
-        //    {
-        //        userId
-        //    }));
-        //    if (!context.DisableReturnValueCache)
-        //    {
-        //        dictionary[userId] = user;
-        //    }
-        //    return user;
-        //}
+        [Remote]
+        public User GetUserById(int userId)
+        {
+            ClientRuntimeContext context = base.Context;
+            object obj;
+            Dictionary<int, User> dictionary;
+            if (base.ObjectData.MethodReturnObjects.TryGetValue("GetUserById", out obj))
+            {
+                dictionary = (Dictionary<int, User>)obj;
+            }
+            else
+            {
+                dictionary = new Dictionary<int, User>();
+                base.ObjectData.MethodReturnObjects["GetUserById"] = dictionary;
+            }
+            User user = null;
+            if (!context.DisableReturnValueCache && dictionary.TryGetValue(userId, out user))
+            {
+                return user;
+            }
+            user = new User(context, new ObjectPathMethod(context, base.Path, "GetUserById", new object[]
+            {
+                userId
+            }));
+            if (!context.DisableReturnValueCache)
+            {
+                dictionary[userId] = user;
+            }
+            return user;
+        }
 
         //[Remote]
         //public RecycleBinItemCollection GetRecycleBinItems(string pagingInfo, int rowLimit, bool isAscending, RecycleBinOrderBy orderBy, RecycleBinItemState itemState)
@@ -3176,15 +3178,15 @@ namespace Microsoft.SharePoint.Client.NetCore
             context.AddQuery(query);
         }
 
-        //[Remote]
-        //public User EnsureUser(string logonName)
-        //{
-        //    ClientRuntimeContext context = base.Context;
-        //    return new User(context, new ObjectPathMethod(context, base.Path, "EnsureUser", new object[]
-        //    {
-        //        logonName
-        //    }));
-        //}
+        [Remote]
+        public User EnsureUser(string logonName)
+        {
+            ClientRuntimeContext context = base.Context;
+            return new User(context, new ObjectPathMethod(context, base.Path, "EnsureUser", new object[]
+            {
+                logonName
+            }));
+        }
 
         [Remote]
         public void ApplyTheme(string colorPaletteUrl, string fontSchemeUrl, string backgroundImageUrl, bool shareGenerated)
