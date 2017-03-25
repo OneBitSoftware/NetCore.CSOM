@@ -10,23 +10,23 @@ namespace Microsoft.SharePoint.Client.NetCore
     [ScriptType("SP.Alert", ServerTypeId = "{004daa6c-acc5-48fc-877a-2604a2cb3358}")]
     public sealed class Alert : ClientObject
     {
-        //[Remote]
-        //public AlertFrequency AlertFrequency
-        //{
-        //    get
-        //    {
-        //        base.CheckUninitializedProperty("AlertFrequency");
-        //        return (AlertFrequency)base.ObjectData.Properties["AlertFrequency"];
-        //    }
-        //    set
-        //    {
-        //        base.ObjectData.Properties["AlertFrequency"] = value;
-        //        if (base.Context != null)
-        //        {
-        //            base.Context.AddQuery(new ClientActionSetProperty(this, "AlertFrequency", value));
-        //        }
-        //    }
-        //}
+        [Remote]
+        public AlertFrequency AlertFrequency
+        {
+            get
+            {
+                base.CheckUninitializedProperty("AlertFrequency");
+                return (AlertFrequency)base.ObjectData.Properties["AlertFrequency"];
+            }
+            set
+            {
+                base.ObjectData.Properties["AlertFrequency"] = value;
+                if (base.Context != null)
+                {
+                    base.Context.AddQuery(new ClientActionSetProperty(this, "AlertFrequency", value));
+                }
+            }
+        }
 
         [Remote]
         public string AlertTemplateName
@@ -56,15 +56,15 @@ namespace Microsoft.SharePoint.Client.NetCore
             }
         }
 
-        //[Remote]
-        //public AlertType AlertType
-        //{
-        //    get
-        //    {
-        //        base.CheckUninitializedProperty("AlertType");
-        //        return (AlertType)base.ObjectData.Properties["AlertType"];
-        //    }
-        //}
+        [Remote]
+        public AlertType AlertType
+        {
+            get
+            {
+                base.CheckUninitializedProperty("AlertType");
+                return (AlertType)base.ObjectData.Properties["AlertType"];
+            }
+        }
 
         [Remote]
         public bool AlwaysNotify
@@ -84,41 +84,41 @@ namespace Microsoft.SharePoint.Client.NetCore
             }
         }
 
-        //[Remote]
-        //public AlertDeliveryChannel DeliveryChannels
-        //{
-        //    get
-        //    {
-        //        base.CheckUninitializedProperty("DeliveryChannels");
-        //        return (AlertDeliveryChannel)base.ObjectData.Properties["DeliveryChannels"];
-        //    }
-        //    set
-        //    {
-        //        base.ObjectData.Properties["DeliveryChannels"] = value;
-        //        if (base.Context != null)
-        //        {
-        //            base.Context.AddQuery(new ClientActionSetProperty(this, "DeliveryChannels", value));
-        //        }
-        //    }
-        //}
+        [Remote]
+        public AlertDeliveryChannel DeliveryChannels
+        {
+            get
+            {
+                base.CheckUninitializedProperty("DeliveryChannels");
+                return (AlertDeliveryChannel)base.ObjectData.Properties["DeliveryChannels"];
+            }
+            set
+            {
+                base.ObjectData.Properties["DeliveryChannels"] = value;
+                if (base.Context != null)
+                {
+                    base.Context.AddQuery(new ClientActionSetProperty(this, "DeliveryChannels", value));
+                }
+            }
+        }
 
-        //[Remote]
-        //public AlertEventType EventType
-        //{
-        //    get
-        //    {
-        //        base.CheckUninitializedProperty("EventType");
-        //        return (AlertEventType)base.ObjectData.Properties["EventType"];
-        //    }
-        //    set
-        //    {
-        //        base.ObjectData.Properties["EventType"] = value;
-        //        if (base.Context != null)
-        //        {
-        //            base.Context.AddQuery(new ClientActionSetProperty(this, "EventType", value));
-        //        }
-        //    }
-        //}
+        [Remote]
+        public AlertEventType EventType
+        {
+            get
+            {
+                base.CheckUninitializedProperty("EventType");
+                return (AlertEventType)base.ObjectData.Properties["EventType"];
+            }
+            set
+            {
+                base.ObjectData.Properties["EventType"] = value;
+                if (base.Context != null)
+                {
+                    base.Context.AddQuery(new ClientActionSetProperty(this, "EventType", value));
+                }
+            }
+        }
 
         [Remote]
         public string Filter
@@ -228,23 +228,23 @@ namespace Microsoft.SharePoint.Client.NetCore
             }
         }
 
-        //[Remote]
-        //public AlertStatus Status
-        //{
-        //    get
-        //    {
-        //        base.CheckUninitializedProperty("Status");
-        //        return (AlertStatus)base.ObjectData.Properties["Status"];
-        //    }
-        //    set
-        //    {
-        //        base.ObjectData.Properties["Status"] = value;
-        //        if (base.Context != null)
-        //        {
-        //            base.Context.AddQuery(new ClientActionSetProperty(this, "Status", value));
-        //        }
-        //    }
-        //}
+        [Remote]
+        public AlertStatus Status
+        {
+            get
+            {
+                base.CheckUninitializedProperty("Status");
+                return (AlertStatus)base.ObjectData.Properties["Status"];
+            }
+            set
+            {
+                base.ObjectData.Properties["Status"] = value;
+                if (base.Context != null)
+                {
+                    base.Context.AddQuery(new ClientActionSetProperty(this, "Status", value));
+                }
+            }
+        }
 
         [Remote]
         public string Title
