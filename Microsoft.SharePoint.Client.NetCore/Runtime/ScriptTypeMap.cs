@@ -6,6 +6,7 @@ using System.Xml;
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.Extensions.DependencyModel;
 
 namespace Microsoft.SharePoint.Client.NetCore.Runtime
 {
@@ -184,13 +185,14 @@ namespace Microsoft.SharePoint.Client.NetCore.Runtime
 
         private static void AppDomain_AssemblyLoad(object sender, AssemblyLoadEventArgs args)
         {
+            Assembly loadedAssembly = args.LoadedAssembly;
             //Edited for .NET Core
-            //Assembly loadedAssembly = args.LoadedAssembly;
             //object[] customAttributes = loadedAssembly.GetCustomAttributes(typeof(ClientTypeAssemblyAttribute), false);
-            //if (customAttributes != null && customAttributes.Length > 0)
-            //{
-            //    ScriptTypeMap.AddClientProxyAssembly(loadedAssembly);
-            //}
+            var customAttributes = loadedAssembly.GetCustomAttributes<ClientTypeAssemblyAttribute>();
+            if (customAttributes != null && customAttributes.Count() > 0)
+            {
+                ScriptTypeMap.AddClientProxyAssembly(loadedAssembly);
+            }
         }
 
         internal static void AddClientProxyAssembly(Assembly assembly)
