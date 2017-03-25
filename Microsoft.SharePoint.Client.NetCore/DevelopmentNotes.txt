@@ -1,0 +1,25 @@
+﻿        //Edited for .NET Core
+
+
+TODO's
+1) No FBA - see FormsAuthenticationLoginInfo
+2) ClientUtility.GetSetupDirectory - Registry dependent!
+2) SPResourceManager - FindDls - Registry dependent!
+2) SPResourceManager - GetObject 
+
+ClientRequestException - no Serializable in .NET Core
+InvalidQueryExpressionException - no Serializable in .NET Core
+CollectionNotInitializedException - no Serializable
+ConditionalExpressionToXmlConverter - not reflected well
+
+ClientObjectQueryableExtension IncludeWithDefaultProperties - needs rewriting
+DataRetrieval = ProcessClientQueryableMethodCallQueryExpression was bugged when reflecting the source, wo it needs checking
+
+ScriptTypeMap - LoadAssembliesDefinedInConfigFile & LoadAssembliesDefinedInProgramFiles - config and xml section needs rewriting
+ClientRuntimeConfigurationSection - needs rewriting
+
+
+
+Site - Audit
+EventReceiverDefinitionCollection
+FeatureCollection
