@@ -1,20 +1,27 @@
-﻿{
+{
   "version": "1.0.0-*",
   "buildOptions": {
-    "emitEntryPoint": true
+    "emitEntryPoint": true,
+    "debugType": "portable"
   },
-
   "dependencies": {
     "Microsoft.NETCore.App": {
       "type": "platform",
       "version": "1.0.1"
     },
-    "Microsoft.SharePoint.Client.NetCore": "1.0.0-*"
+    "Microsoft.SharePoint.Client.NetCore": "1.0.0-*",
+    "System.Runtime.InteropServices.RuntimeInformation": "4.3.0"
   },
-
   "frameworks": {
     "netcoreapp1.0": {
       "imports": "dnxcore50"
     }
+  },
+  "publishOptions": {
+    "include": [
+      "docker-compose.yml",
+      "Dockerfile",
+      ".dockerignore"
+    ]
   }
 }
