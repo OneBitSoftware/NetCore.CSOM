@@ -7,6 +7,11 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "NetCore.Console", "NetCore.
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Microsoft.SharePoint.Client.NetCore", "Microsoft.SharePoint.Client.NetCore\Microsoft.SharePoint.Client.NetCore.xproj", "{617A7FFE-26E5-4C78-97D4-F1AA7EBEE138}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EE97802D-CFA8-4D92-9B1D-1965BCD3EFBC}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
