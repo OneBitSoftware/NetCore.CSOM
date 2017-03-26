@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Runtime.InteropServices;
 using System.Security;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,10 @@ namespace NetCore.Console
     {
         public static void Main(string[] args)
         {
+            System.Console.WriteLine();
+            System.Console.WriteLine("Operating system info: " + RuntimeInformation.OSDescription);
+            System.Console.WriteLine();
+
             // Set url and account
             string url = "https://pnprocks.sharepoint.com";
             var userName = "admin@pnprocks.onmicrosoft.com";
@@ -41,6 +46,7 @@ namespace NetCore.Console
                 w => w.QuickLaunchEnabled);
 
             //Execute...
+            System.Console.WriteLine();
             System.Console.WriteLine("Getting data for: " + url);
             context.ExecuteQuery();
             System.Console.WriteLine();
@@ -60,7 +66,8 @@ namespace NetCore.Console
             System.Console.WriteLine();
 
             System.Console.WriteLine("Ready.");
-            System.Console.ReadKey();
+            if (RuntimeInformation.OSDescription.StartsWith("Microsoft"))
+                { System.Console.ReadKey(); }
         }
     }
 }
