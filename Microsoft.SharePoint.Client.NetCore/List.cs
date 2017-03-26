@@ -1,6 +1,9 @@
 ﻿using Microsoft.SharePoint.Client.NetCore.Runtime;
+using Microsoft.SharePoint.Client.NetCore.Workflow;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 

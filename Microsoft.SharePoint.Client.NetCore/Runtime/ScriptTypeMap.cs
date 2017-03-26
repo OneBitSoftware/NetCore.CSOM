@@ -186,7 +186,7 @@ namespace Microsoft.SharePoint.Client.NetCore.Runtime
                     string path = files[i];
                     try
                     {
-                        using (TextReader textReader = File.OpenText(path))
+                        using (TextReader textReader = System.IO.File.OpenText(path))
                         {
                             //XmlDocument xmlDocument = new XmlDocument();
                             //xmlDocument.Load(XmlReader.Create(textReader));
