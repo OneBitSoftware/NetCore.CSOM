@@ -1,4 +1,6 @@
-﻿using System.Reflection;
+﻿using Microsoft.SharePoint.Client.NetCore;
+using Microsoft.SharePoint.Client.NetCore.Runtime;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
@@ -17,3 +19,6 @@ using System.Runtime.InteropServices;
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 [assembly: Guid("617a7ffe-26e5-4c78-97d4-f1aa7ebee138")]
+
+// The CSOM library has this...
+[assembly: ClientTypeAssembly(ScriptTypeFactory = typeof(ScriptTypeFactory))]

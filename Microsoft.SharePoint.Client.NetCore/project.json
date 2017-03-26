@@ -1,8 +1,9 @@
 {
-  "version": "1.0.0-*",
+  "version": "16.1.0-0",
 
   "dependencies": {
     "Microsoft.Extensions.Configuration": "1.0.0",
+    "Microsoft.Extensions.DependencyModel": "1.1.1",
     "NETStandard.Library": "1.6.0",
     "System.Collections.NonGeneric": "4.0.1",
     "System.Collections.Specialized": "4.0.1",

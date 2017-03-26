@@ -4,8 +4,11 @@ using System.IO;
 using System.Linq;
 using System.Xml;
 using System.Reflection;
+using System.Runtime;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.Extensions.DependencyModel;
+using Microsoft.DotNet.PlatformAbstractions;
 
 namespace Microsoft.SharePoint.Client.NetCore.Runtime
 {
@@ -84,6 +87,31 @@ namespace Microsoft.SharePoint.Client.NetCore.Runtime
             //    {
             //    }
             //}
+
+            // The above code seems to loop all loaded assemblies to check for the ClientTypeAssemblyAttribute
+            // The below is how I have rewritten it for .NET Core
+            // NOTE: I can't find a way to hook to something similiar to AppDomain.CurrentDomain.AssemblyLoad
+
+            var currentAssembly = Assembly.GetEntryAssembly();
+            var currentAssemblyClientTypeAttributes = currentAssembly.GetCustomAttribute<ClientTypeAssemblyAttribute>();
+            var currentAssemblyReferencedAssemblies = currentAssembly.GetReferencedAssemblies();
+
+            foreach (var assemblyName in currentAssemblyReferencedAssemblies)
+            {
+                try
+                {
+                    var assembly = Assembly.Load(assemblyName);
+
+                    var customAttributes = assembly.GetCustomAttributes<ClientTypeAssemblyAttribute>();
+                    if (customAttributes != null && customAttributes.Count() != 0)
+                    {
+                        ScriptTypeMap.AddClientProxyAssembly(assembly);
+                    }
+                }
+                catch (Exception)
+                {
+                }
+            }
         }
 
         private static bool IsFatalException(Exception ex)
