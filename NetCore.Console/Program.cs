@@ -41,6 +41,7 @@ namespace NetCore.Console
             context.Load(
                 web, 
                 w => w.Title, 
+                w => w.CurrentUser,
                 w => w.ServerRelativeUrl,
                 w => w.PreviewFeaturesEnabled, 
                 w => w.QuickLaunchEnabled);
@@ -60,6 +61,7 @@ namespace NetCore.Console
 
             System.Console.WriteLine("Web object loaded...");
             System.Console.WriteLine("Web Title: " + web.Title);
+            System.Console.WriteLine("Web Current User: " + web.CurrentUser.Title);
             System.Console.WriteLine("Web ServerRelativeUrl: " + web.ServerRelativeUrl);
             System.Console.WriteLine("Web PreviewFeaturesEnabled: " + web.PreviewFeaturesEnabled);
             System.Console.WriteLine("Web QuickLaunchEnabled: " + web.QuickLaunchEnabled);
