@@ -46,7 +46,8 @@ namespace NetCore.Console
                 w => w.CurrentUser,
                 w => w.ServerRelativeUrl,
                 w => w.PreviewFeaturesEnabled, 
-                w => w.QuickLaunchEnabled);
+                w => w.QuickLaunchEnabled,
+                w => w.SiteUsers);
 
             //Execute...
             System.Console.WriteLine();
@@ -67,6 +68,12 @@ namespace NetCore.Console
             System.Console.WriteLine("Web ServerRelativeUrl: " + web.ServerRelativeUrl);
             System.Console.WriteLine("Web PreviewFeaturesEnabled: " + web.PreviewFeaturesEnabled);
             System.Console.WriteLine("Web QuickLaunchEnabled: " + web.QuickLaunchEnabled);
+
+            foreach (var user  in web.SiteUsers)
+            {
+                System.Console.WriteLine("\t Web SiteUser:" + user.Title + " " + user.Email);
+            }
+
             System.Console.WriteLine();
 
             System.Console.WriteLine("Ready.");
