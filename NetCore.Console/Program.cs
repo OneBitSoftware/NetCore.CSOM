@@ -21,6 +21,7 @@ namespace NetCore.Console
             System.Console.WriteLine();
 
             // Set url and account
+            #region Get Password
             string url = "https://pnprocks.sharepoint.com";
             var userName = "admin@pnprocks.onmicrosoft.com";
             SecureString securePassword = new SecureString();
@@ -28,7 +29,8 @@ namespace NetCore.Console
             foreach (char item in password)
             {
                 securePassword.AppendChar(item);
-            }
+            } 
+            #endregion
 
             //Setup
             var context = new ClientContext(url);
@@ -61,7 +63,7 @@ namespace NetCore.Console
 
             System.Console.WriteLine("Web object loaded...");
             System.Console.WriteLine("Web Title: " + web.Title);
-            System.Console.WriteLine("Web Current User: " + web.CurrentUser.Title);
+            System.Console.WriteLine("Web Current User: " + web.CurrentUser.Title + " " + web.CurrentUser.Email);
             System.Console.WriteLine("Web ServerRelativeUrl: " + web.ServerRelativeUrl);
             System.Console.WriteLine("Web PreviewFeaturesEnabled: " + web.PreviewFeaturesEnabled);
             System.Console.WriteLine("Web QuickLaunchEnabled: " + web.QuickLaunchEnabled);
