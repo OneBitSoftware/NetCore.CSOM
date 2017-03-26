@@ -6,7 +6,6 @@ using System.Xml;
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.Extensions.DependencyModel;
 
 namespace Microsoft.SharePoint.Client.NetCore.Runtime
 {
