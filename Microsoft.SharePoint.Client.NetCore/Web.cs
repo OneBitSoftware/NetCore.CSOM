@@ -1053,25 +1053,25 @@ namespace Microsoft.SharePoint.Client.NetCore
             }
         }
 
-        //[Remote]
-        //public RoleDefinitionCollection RoleDefinitions
-        //{
-        //    get
-        //    {
-        //        object obj;
-        //        RoleDefinitionCollection roleDefinitionCollection;
-        //        if (base.ObjectData.ClientObjectProperties.TryGetValue("RoleDefinitions", out obj))
-        //        {
-        //            roleDefinitionCollection = (RoleDefinitionCollection)obj;
-        //        }
-        //        else
-        //        {
-        //            roleDefinitionCollection = new RoleDefinitionCollection(base.Context, new ObjectPathProperty(base.Context, base.Path, "RoleDefinitions"));
-        //            base.ObjectData.ClientObjectProperties["RoleDefinitions"] = roleDefinitionCollection;
-        //        }
-        //        return roleDefinitionCollection;
-        //    }
-        //}
+        [Remote]
+        public RoleDefinitionCollection RoleDefinitions
+        {
+            get
+            {
+                object obj;
+                RoleDefinitionCollection roleDefinitionCollection;
+                if (base.ObjectData.ClientObjectProperties.TryGetValue("RoleDefinitions", out obj))
+                {
+                    roleDefinitionCollection = (RoleDefinitionCollection)obj;
+                }
+                else
+                {
+                    roleDefinitionCollection = new RoleDefinitionCollection(base.Context, new ObjectPathProperty(base.Context, base.Path, "RoleDefinitions"));
+                    base.ObjectData.ClientObjectProperties["RoleDefinitions"] = roleDefinitionCollection;
+                }
+                return roleDefinitionCollection;
+            }
+        }
 
         //[Remote]
         //public Folder RootFolder
@@ -1229,25 +1229,25 @@ namespace Microsoft.SharePoint.Client.NetCore
         //    }
         //}
 
-        //[Remote]
-        //public UserCollection SiteUsers
-        //{
-        //    get
-        //    {
-        //        object obj;
-        //        UserCollection userCollection;
-        //        if (base.ObjectData.ClientObjectProperties.TryGetValue("SiteUsers", out obj))
-        //        {
-        //            userCollection = (UserCollection)obj;
-        //        }
-        //        else
-        //        {
-        //            userCollection = new UserCollection(base.Context, new ObjectPathProperty(base.Context, base.Path, "SiteUsers"));
-        //            base.ObjectData.ClientObjectProperties["SiteUsers"] = userCollection;
-        //        }
-        //        return userCollection;
-        //    }
-        //}
+        [Remote]
+        public UserCollection SiteUsers
+        {
+            get
+            {
+                object obj;
+                UserCollection userCollection;
+                if (base.ObjectData.ClientObjectProperties.TryGetValue("SiteUsers", out obj))
+                {
+                    userCollection = (UserCollection)obj;
+                }
+                else
+                {
+                    userCollection = new UserCollection(base.Context, new ObjectPathProperty(base.Context, base.Path, "SiteUsers"));
+                    base.ObjectData.ClientObjectProperties["SiteUsers"] = userCollection;
+                }
+                return userCollection;
+            }
+        }
 
         [Remote]
         public IEnumerable<int> SupportedUILanguageIds
@@ -1357,25 +1357,25 @@ namespace Microsoft.SharePoint.Client.NetCore
             }
         }
 
-        //[Remote]
-        //public UserResource TitleResource
-        //{
-        //    get
-        //    {
-        //        object obj;
-        //        UserResource userResource;
-        //        if (base.ObjectData.ClientObjectProperties.TryGetValue("TitleResource", out obj))
-        //        {
-        //            userResource = (UserResource)obj;
-        //        }
-        //        else
-        //        {
-        //            userResource = new UserResource(base.Context, new ObjectPathProperty(base.Context, base.Path, "TitleResource"));
-        //            base.ObjectData.ClientObjectProperties["TitleResource"] = userResource;
-        //        }
-        //        return userResource;
-        //    }
-        //}
+        [Remote]
+        public UserResource TitleResource
+        {
+            get
+            {
+                object obj;
+                UserResource userResource;
+                if (base.ObjectData.ClientObjectProperties.TryGetValue("TitleResource", out obj))
+                {
+                    userResource = (UserResource)obj;
+                }
+                else
+                {
+                    userResource = new UserResource(base.Context, new ObjectPathProperty(base.Context, base.Path, "TitleResource"));
+                    base.ObjectData.ClientObjectProperties["TitleResource"] = userResource;
+                }
+                return userResource;
+            }
+        }
 
         [Remote]
         public bool TreeViewEnabled
@@ -2026,12 +2026,12 @@ namespace Microsoft.SharePoint.Client.NetCore
                     reader.ReadName();
                     base.ObjectData.Properties["RequestAccessEmail"] = reader.ReadString();
                     break;
-                //case "RoleDefinitions":
-                //    flag = true;
-                //    reader.ReadName();
-                //    base.UpdateClientObjectPropertyType("RoleDefinitions", this.RoleDefinitions, reader);
-                //    this.RoleDefinitions.FromJson(reader);
-                //    break;
+                case "RoleDefinitions":
+                    flag = true;
+                    reader.ReadName();
+                    base.UpdateClientObjectPropertyType("RoleDefinitions", this.RoleDefinitions, reader);
+                    this.RoleDefinitions.FromJson(reader);
+                    break;
                 //case "RootFolder":
                 //    flag = true;
                 //    reader.ReadName();
@@ -2080,12 +2080,12 @@ namespace Microsoft.SharePoint.Client.NetCore
                 //    base.UpdateClientObjectPropertyType("SiteUserInfoList", this.SiteUserInfoList, reader);
                 //    this.SiteUserInfoList.FromJson(reader);
                 //    break;
-                //case "SiteUsers":
-                //    flag = true;
-                //    reader.ReadName();
-                //    base.UpdateClientObjectPropertyType("SiteUsers", this.SiteUsers, reader);
-                //    this.SiteUsers.FromJson(reader);
-                //    break;
+                case "SiteUsers":
+                    flag = true;
+                    reader.ReadName();
+                    base.UpdateClientObjectPropertyType("SiteUsers", this.SiteUsers, reader);
+                    this.SiteUsers.FromJson(reader);
+                    break;
                 case "SupportedUILanguageIds":
                     flag = true;
                     reader.ReadName();

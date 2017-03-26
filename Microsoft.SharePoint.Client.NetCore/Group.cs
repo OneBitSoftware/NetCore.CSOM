@@ -186,26 +186,25 @@ namespace Microsoft.SharePoint.Client.NetCore
             }
         }
 
-        //Edited for .NET Core
-        //[Remote]
-        //public UserCollection Users
-        //{
-        //    get
-        //    {
-        //        object obj;
-        //        UserCollection userCollection;
-        //        if (base.ObjectData.ClientObjectProperties.TryGetValue("Users", out obj))
-        //        {
-        //            userCollection = (UserCollection)obj;
-        //        }
-        //        else
-        //        {
-        //            userCollection = new UserCollection(base.Context, new ObjectPathProperty(base.Context, base.Path, "Users"));
-        //            base.ObjectData.ClientObjectProperties["Users"] = userCollection;
-        //        }
-        //        return userCollection;
-        //    }
-        //}
+        [Remote]
+        public UserCollection Users
+        {
+            get
+            {
+                object obj;
+                UserCollection userCollection;
+                if (base.ObjectData.ClientObjectProperties.TryGetValue("Users", out obj))
+                {
+                    userCollection = (UserCollection)obj;
+                }
+                else
+                {
+                    userCollection = new UserCollection(base.Context, new ObjectPathProperty(base.Context, base.Path, "Users"));
+                    base.ObjectData.ClientObjectProperties["Users"] = userCollection;
+                }
+                return userCollection;
+            }
+        }
 
         internal void InitFromCreationInformation(GroupCreationInformation creation)
         {
@@ -285,13 +284,12 @@ namespace Microsoft.SharePoint.Client.NetCore
                     reader.ReadName();
                     base.ObjectData.Properties["RequestToJoinLeaveEmailSetting"] = reader.ReadString();
                     break;
-                //Edited for .NET Core
-                //case "Users":
-                //    flag = true;
-                //    reader.ReadName();
-                //    base.UpdateClientObjectPropertyType("Users", this.Users, reader);
-                //    this.Users.FromJson(reader);
-                //    break;
+                case "Users":
+                    flag = true;
+                    reader.ReadName();
+                    base.UpdateClientObjectPropertyType("Users", this.Users, reader);
+                    this.Users.FromJson(reader);
+                    break;
             }
             return flag;
         }
