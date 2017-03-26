@@ -607,7 +607,8 @@ namespace Microsoft.SharePoint.Client.NetCore
                 requestStream.Write(buffer, 0, count);
             }
             requestStream.Flush();
-            requestStream.Close();
+            //Edited for .NET Core
+            requestStream.Dispose();// Close();
             try
             {
                 webRequestExecutor.Execute();
