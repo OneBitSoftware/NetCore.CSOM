@@ -47,7 +47,8 @@ namespace NetCore.Console
                 w => w.ServerRelativeUrl,
                 w => w.PreviewFeaturesEnabled, 
                 w => w.QuickLaunchEnabled,
-                w => w.SiteUsers);
+                w => w.SiteUsers,
+                w => w.Lists);
 
             //Execute...
             System.Console.WriteLine();
@@ -73,10 +74,17 @@ namespace NetCore.Console
             {
                 System.Console.WriteLine("\t Web SiteUser:" + user.Title + " " + user.Email);
             }
+            System.Console.WriteLine();
+
+            foreach (var list in web.Lists)
+            {
+                System.Console.WriteLine("\t Web List:" + list.Title + " item count: " + list.ItemCount);
+            }
+
 
             System.Console.WriteLine();
 
-            System.Console.WriteLine("Ready.");
+            System.Console.WriteLine("CSOM calls in .NET Core completed. THIS JUST HAPPENED!.");
             if (RuntimeInformation.OSDescription.StartsWith("Microsoft"))
                 { System.Console.ReadKey(); }
         }

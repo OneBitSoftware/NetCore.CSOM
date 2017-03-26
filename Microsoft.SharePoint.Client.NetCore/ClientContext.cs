@@ -275,7 +275,7 @@ namespace Microsoft.SharePoint.Client.NetCore
                 webRequestExecutor.RequestHeaders["X-RequestForceAuthentication"] = "true";
             }
             this.BuildGetUpdatedFormDigestInfoRequestBody(webRequestExecutor.GetRequestStream());
-            //Edited for .NET Core
+            //Edited for .NET Core - Calling dispose does not work because now they are Async methods
             //webRequestExecutor.GetRequestStream().Close();
             //webRequestExecutor.GetRequestStream().Dispose();// Close();
             try

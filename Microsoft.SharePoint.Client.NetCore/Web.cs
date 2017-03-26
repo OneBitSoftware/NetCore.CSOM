@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Xml;
 using System.Net;
+using Microsoft.SharePoint.Client.NetCore.Workflow;
 
 namespace Microsoft.SharePoint.Client.NetCore
 {
@@ -293,45 +294,45 @@ namespace Microsoft.SharePoint.Client.NetCore
             }
         }
 
-        //[Remote]
-        //public ContentTypeCollection AvailableContentTypes
-        //{
-        //    get
-        //    {
-        //        object obj;
-        //        ContentTypeCollection contentTypeCollection;
-        //        if (base.ObjectData.ClientObjectProperties.TryGetValue("AvailableContentTypes", out obj))
-        //        {
-        //            contentTypeCollection = (ContentTypeCollection)obj;
-        //        }
-        //        else
-        //        {
-        //            contentTypeCollection = new ContentTypeCollection(base.Context, new ObjectPathProperty(base.Context, base.Path, "AvailableContentTypes"));
-        //            base.ObjectData.ClientObjectProperties["AvailableContentTypes"] = contentTypeCollection;
-        //        }
-        //        return contentTypeCollection;
-        //    }
-        //}
+        [Remote]
+        public ContentTypeCollection AvailableContentTypes
+        {
+            get
+            {
+                object obj;
+                ContentTypeCollection contentTypeCollection;
+                if (base.ObjectData.ClientObjectProperties.TryGetValue("AvailableContentTypes", out obj))
+                {
+                    contentTypeCollection = (ContentTypeCollection)obj;
+                }
+                else
+                {
+                    contentTypeCollection = new ContentTypeCollection(base.Context, new ObjectPathProperty(base.Context, base.Path, "AvailableContentTypes"));
+                    base.ObjectData.ClientObjectProperties["AvailableContentTypes"] = contentTypeCollection;
+                }
+                return contentTypeCollection;
+            }
+        }
 
-        //[Remote]
-        //public FieldCollection AvailableFields
-        //{
-        //    get
-        //    {
-        //        object obj;
-        //        FieldCollection fieldCollection;
-        //        if (base.ObjectData.ClientObjectProperties.TryGetValue("AvailableFields", out obj))
-        //        {
-        //            fieldCollection = (FieldCollection)obj;
-        //        }
-        //        else
-        //        {
-        //            fieldCollection = new FieldCollection(base.Context, new ObjectPathProperty(base.Context, base.Path, "AvailableFields"));
-        //            base.ObjectData.ClientObjectProperties["AvailableFields"] = fieldCollection;
-        //        }
-        //        return fieldCollection;
-        //    }
-        //}
+        [Remote]
+        public FieldCollection AvailableFields
+        {
+            get
+            {
+                object obj;
+                FieldCollection fieldCollection;
+                if (base.ObjectData.ClientObjectProperties.TryGetValue("AvailableFields", out obj))
+                {
+                    fieldCollection = (FieldCollection)obj;
+                }
+                else
+                {
+                    fieldCollection = new FieldCollection(base.Context, new ObjectPathProperty(base.Context, base.Path, "AvailableFields"));
+                    base.ObjectData.ClientObjectProperties["AvailableFields"] = fieldCollection;
+                }
+                return fieldCollection;
+            }
+        }
 
         [Remote]
         public short Configuration
@@ -361,25 +362,25 @@ namespace Microsoft.SharePoint.Client.NetCore
             }
         }
 
-        //[Remote]
-        //public ContentTypeCollection ContentTypes
-        //{
-        //    get
-        //    {
-        //        object obj;
-        //        ContentTypeCollection contentTypeCollection;
-        //        if (base.ObjectData.ClientObjectProperties.TryGetValue("ContentTypes", out obj))
-        //        {
-        //            contentTypeCollection = (ContentTypeCollection)obj;
-        //        }
-        //        else
-        //        {
-        //            contentTypeCollection = new ContentTypeCollection(base.Context, new ObjectPathProperty(base.Context, base.Path, "ContentTypes"));
-        //            base.ObjectData.ClientObjectProperties["ContentTypes"] = contentTypeCollection;
-        //        }
-        //        return contentTypeCollection;
-        //    }
-        //}
+        [Remote]
+        public ContentTypeCollection ContentTypes
+        {
+            get
+            {
+                object obj;
+                ContentTypeCollection contentTypeCollection;
+                if (base.ObjectData.ClientObjectProperties.TryGetValue("ContentTypes", out obj))
+                {
+                    contentTypeCollection = (ContentTypeCollection)obj;
+                }
+                else
+                {
+                    contentTypeCollection = new ContentTypeCollection(base.Context, new ObjectPathProperty(base.Context, base.Path, "ContentTypes"));
+                    base.ObjectData.ClientObjectProperties["ContentTypes"] = contentTypeCollection;
+                }
+                return contentTypeCollection;
+            }
+        }
 
         [Remote]
         public DateTime Created
@@ -477,25 +478,25 @@ namespace Microsoft.SharePoint.Client.NetCore
             }
         }
 
-        //[Remote]
-        //public UserResource DescriptionResource
-        //{
-        //    get
-        //    {
-        //        object obj;
-        //        UserResource userResource;
-        //        if (base.ObjectData.ClientObjectProperties.TryGetValue("DescriptionResource", out obj))
-        //        {
-        //            userResource = (UserResource)obj;
-        //        }
-        //        else
-        //        {
-        //            userResource = new UserResource(base.Context, new ObjectPathProperty(base.Context, base.Path, "DescriptionResource"));
-        //            base.ObjectData.ClientObjectProperties["DescriptionResource"] = userResource;
-        //        }
-        //        return userResource;
-        //    }
-        //}
+        [Remote]
+        public UserResource DescriptionResource
+        {
+            get
+            {
+                object obj;
+                UserResource userResource;
+                if (base.ObjectData.ClientObjectProperties.TryGetValue("DescriptionResource", out obj))
+                {
+                    userResource = (UserResource)obj;
+                }
+                else
+                {
+                    userResource = new UserResource(base.Context, new ObjectPathProperty(base.Context, base.Path, "DescriptionResource"));
+                    base.ObjectData.ClientObjectProperties["DescriptionResource"] = userResource;
+                }
+                return userResource;
+            }
+        }
 
         [Remote]
         public string DesignerDownloadUrlForCurrentUser
@@ -599,25 +600,25 @@ namespace Microsoft.SharePoint.Client.NetCore
             }
         }
 
-        //[Remote]
-        //public EventReceiverDefinitionCollection EventReceivers
-        //{
-        //    get
-        //    {
-        //        object obj;
-        //        EventReceiverDefinitionCollection eventReceiverDefinitionCollection;
-        //        if (base.ObjectData.ClientObjectProperties.TryGetValue("EventReceivers", out obj))
-        //        {
-        //            eventReceiverDefinitionCollection = (EventReceiverDefinitionCollection)obj;
-        //        }
-        //        else
-        //        {
-        //            eventReceiverDefinitionCollection = new EventReceiverDefinitionCollection(base.Context, new ObjectPathProperty(base.Context, base.Path, "EventReceivers"));
-        //            base.ObjectData.ClientObjectProperties["EventReceivers"] = eventReceiverDefinitionCollection;
-        //        }
-        //        return eventReceiverDefinitionCollection;
-        //    }
-        //}
+        [Remote]
+        public EventReceiverDefinitionCollection EventReceivers
+        {
+            get
+            {
+                object obj;
+                EventReceiverDefinitionCollection eventReceiverDefinitionCollection;
+                if (base.ObjectData.ClientObjectProperties.TryGetValue("EventReceivers", out obj))
+                {
+                    eventReceiverDefinitionCollection = (EventReceiverDefinitionCollection)obj;
+                }
+                else
+                {
+                    eventReceiverDefinitionCollection = new EventReceiverDefinitionCollection(base.Context, new ObjectPathProperty(base.Context, base.Path, "EventReceivers"));
+                    base.ObjectData.ClientObjectProperties["EventReceivers"] = eventReceiverDefinitionCollection;
+                }
+                return eventReceiverDefinitionCollection;
+            }
+        }
 
         [Remote]
         public bool ExcludeFromOfflineClient
@@ -657,45 +658,45 @@ namespace Microsoft.SharePoint.Client.NetCore
         //    }
         //}
 
-        //[Remote]
-        //public FieldCollection Fields
-        //{
-        //    get
-        //    {
-        //        object obj;
-        //        FieldCollection fieldCollection;
-        //        if (base.ObjectData.ClientObjectProperties.TryGetValue("Fields", out obj))
-        //        {
-        //            fieldCollection = (FieldCollection)obj;
-        //        }
-        //        else
-        //        {
-        //            fieldCollection = new FieldCollection(base.Context, new ObjectPathProperty(base.Context, base.Path, "Fields"));
-        //            base.ObjectData.ClientObjectProperties["Fields"] = fieldCollection;
-        //        }
-        //        return fieldCollection;
-        //    }
-        //}
+        [Remote]
+        public FieldCollection Fields
+        {
+            get
+            {
+                object obj;
+                FieldCollection fieldCollection;
+                if (base.ObjectData.ClientObjectProperties.TryGetValue("Fields", out obj))
+                {
+                    fieldCollection = (FieldCollection)obj;
+                }
+                else
+                {
+                    fieldCollection = new FieldCollection(base.Context, new ObjectPathProperty(base.Context, base.Path, "Fields"));
+                    base.ObjectData.ClientObjectProperties["Fields"] = fieldCollection;
+                }
+                return fieldCollection;
+            }
+        }
 
-        //[Remote]
-        //public FolderCollection Folders
-        //{
-        //    get
-        //    {
-        //        object obj;
-        //        FolderCollection folderCollection;
-        //        if (base.ObjectData.ClientObjectProperties.TryGetValue("Folders", out obj))
-        //        {
-        //            folderCollection = (FolderCollection)obj;
-        //        }
-        //        else
-        //        {
-        //            folderCollection = new FolderCollection(base.Context, new ObjectPathProperty(base.Context, base.Path, "Folders"));
-        //            base.ObjectData.ClientObjectProperties["Folders"] = folderCollection;
-        //        }
-        //        return folderCollection;
-        //    }
-        //}
+        [Remote]
+        public FolderCollection Folders
+        {
+            get
+            {
+                object obj;
+                FolderCollection folderCollection;
+                if (base.ObjectData.ClientObjectProperties.TryGetValue("Folders", out obj))
+                {
+                    folderCollection = (FolderCollection)obj;
+                }
+                else
+                {
+                    folderCollection = new FolderCollection(base.Context, new ObjectPathProperty(base.Context, base.Path, "Folders"));
+                    base.ObjectData.ClientObjectProperties["Folders"] = folderCollection;
+                }
+                return folderCollection;
+            }
+        }
 
         [Remote]
         public Guid Id
@@ -755,45 +756,45 @@ namespace Microsoft.SharePoint.Client.NetCore
             }
         }
 
-        //[Remote]
-        //public ListCollection Lists
-        //{
-        //    get
-        //    {
-        //        object obj;
-        //        ListCollection listCollection;
-        //        if (base.ObjectData.ClientObjectProperties.TryGetValue("Lists", out obj))
-        //        {
-        //            listCollection = (ListCollection)obj;
-        //        }
-        //        else
-        //        {
-        //            listCollection = new ListCollection(base.Context, new ObjectPathProperty(base.Context, base.Path, "Lists"));
-        //            base.ObjectData.ClientObjectProperties["Lists"] = listCollection;
-        //        }
-        //        return listCollection;
-        //    }
-        //}
+        [Remote]
+        public ListCollection Lists
+        {
+            get
+            {
+                object obj;
+                ListCollection listCollection;
+                if (base.ObjectData.ClientObjectProperties.TryGetValue("Lists", out obj))
+                {
+                    listCollection = (ListCollection)obj;
+                }
+                else
+                {
+                    listCollection = new ListCollection(base.Context, new ObjectPathProperty(base.Context, base.Path, "Lists"));
+                    base.ObjectData.ClientObjectProperties["Lists"] = listCollection;
+                }
+                return listCollection;
+            }
+        }
 
-        //[Remote]
-        //public ListTemplateCollection ListTemplates
-        //{
-        //    get
-        //    {
-        //        object obj;
-        //        ListTemplateCollection listTemplateCollection;
-        //        if (base.ObjectData.ClientObjectProperties.TryGetValue("ListTemplates", out obj))
-        //        {
-        //            listTemplateCollection = (ListTemplateCollection)obj;
-        //        }
-        //        else
-        //        {
-        //            listTemplateCollection = new ListTemplateCollection(base.Context, new ObjectPathProperty(base.Context, base.Path, "ListTemplates"));
-        //            base.ObjectData.ClientObjectProperties["ListTemplates"] = listTemplateCollection;
-        //        }
-        //        return listTemplateCollection;
-        //    }
-        //}
+        [Remote]
+        public ListTemplateCollection ListTemplates
+        {
+            get
+            {
+                object obj;
+                ListTemplateCollection listTemplateCollection;
+                if (base.ObjectData.ClientObjectProperties.TryGetValue("ListTemplates", out obj))
+                {
+                    listTemplateCollection = (ListTemplateCollection)obj;
+                }
+                else
+                {
+                    listTemplateCollection = new ListTemplateCollection(base.Context, new ObjectPathProperty(base.Context, base.Path, "ListTemplates"));
+                    base.ObjectData.ClientObjectProperties["ListTemplates"] = listTemplateCollection;
+                }
+                return listTemplateCollection;
+            }
+        }
 
         [Remote]
         public string MasterUrl
@@ -1073,25 +1074,25 @@ namespace Microsoft.SharePoint.Client.NetCore
             }
         }
 
-        //[Remote]
-        //public Folder RootFolder
-        //{
-        //    get
-        //    {
-        //        object obj;
-        //        Folder folder;
-        //        if (base.ObjectData.ClientObjectProperties.TryGetValue("RootFolder", out obj))
-        //        {
-        //            folder = (Folder)obj;
-        //        }
-        //        else
-        //        {
-        //            folder = new Folder(base.Context, new ObjectPathProperty(base.Context, base.Path, "RootFolder"));
-        //            base.ObjectData.ClientObjectProperties["RootFolder"] = folder;
-        //        }
-        //        return folder;
-        //    }
-        //}
+        [Remote]
+        public Folder RootFolder
+        {
+            get
+            {
+                object obj;
+                Folder folder;
+                if (base.ObjectData.ClientObjectProperties.TryGetValue("RootFolder", out obj))
+                {
+                    folder = (Folder)obj;
+                }
+                else
+                {
+                    folder = new Folder(base.Context, new ObjectPathProperty(base.Context, base.Path, "RootFolder"));
+                    base.ObjectData.ClientObjectProperties["RootFolder"] = folder;
+                }
+                return folder;
+            }
+        }
 
         [Remote]
         public bool SaveSiteAsTemplateEnabled
@@ -1209,25 +1210,25 @@ namespace Microsoft.SharePoint.Client.NetCore
             }
         }
 
-        //[Remote]
-        //public List SiteUserInfoList
-        //{
-        //    get
-        //    {
-        //        object obj;
-        //        List list;
-        //        if (base.ObjectData.ClientObjectProperties.TryGetValue("SiteUserInfoList", out obj))
-        //        {
-        //            list = (List)obj;
-        //        }
-        //        else
-        //        {
-        //            list = new List(base.Context, new ObjectPathProperty(base.Context, base.Path, "SiteUserInfoList"));
-        //            base.ObjectData.ClientObjectProperties["SiteUserInfoList"] = list;
-        //        }
-        //        return list;
-        //    }
-        //}
+        [Remote]
+        public List SiteUserInfoList
+        {
+            get
+            {
+                object obj;
+                List list;
+                if (base.ObjectData.ClientObjectProperties.TryGetValue("SiteUserInfoList", out obj))
+                {
+                    list = (List)obj;
+                }
+                else
+                {
+                    list = new List(base.Context, new ObjectPathProperty(base.Context, base.Path, "SiteUserInfoList"));
+                    base.ObjectData.ClientObjectProperties["SiteUserInfoList"] = list;
+                }
+                return list;
+            }
+        }
 
         [Remote]
         public UserCollection SiteUsers
@@ -1441,25 +1442,25 @@ namespace Microsoft.SharePoint.Client.NetCore
             }
         }
 
-        //[Remote]
-        //public UserCustomActionCollection UserCustomActions
-        //{
-        //    get
-        //    {
-        //        object obj;
-        //        UserCustomActionCollection userCustomActionCollection;
-        //        if (base.ObjectData.ClientObjectProperties.TryGetValue("UserCustomActions", out obj))
-        //        {
-        //            userCustomActionCollection = (UserCustomActionCollection)obj;
-        //        }
-        //        else
-        //        {
-        //            userCustomActionCollection = new UserCustomActionCollection(base.Context, new ObjectPathProperty(base.Context, base.Path, "UserCustomActions"));
-        //            base.ObjectData.ClientObjectProperties["UserCustomActions"] = userCustomActionCollection;
-        //        }
-        //        return userCustomActionCollection;
-        //    }
-        //}
+        [Remote]
+        public UserCustomActionCollection UserCustomActions
+        {
+            get
+            {
+                object obj;
+                UserCustomActionCollection userCustomActionCollection;
+                if (base.ObjectData.ClientObjectProperties.TryGetValue("UserCustomActions", out obj))
+                {
+                    userCustomActionCollection = (UserCustomActionCollection)obj;
+                }
+                else
+                {
+                    userCustomActionCollection = new UserCustomActionCollection(base.Context, new ObjectPathProperty(base.Context, base.Path, "UserCustomActions"));
+                    base.ObjectData.ClientObjectProperties["UserCustomActions"] = userCustomActionCollection;
+                }
+                return userCustomActionCollection;
+            }
+        }
 
         [Remote]
         public WebCollection Webs
@@ -1491,25 +1492,25 @@ namespace Microsoft.SharePoint.Client.NetCore
             }
         }
 
-        //[Remote]
-        //public WorkflowAssociationCollection WorkflowAssociations
-        //{
-        //    get
-        //    {
-        //        object obj;
-        //        WorkflowAssociationCollection workflowAssociationCollection;
-        //        if (base.ObjectData.ClientObjectProperties.TryGetValue("WorkflowAssociations", out obj))
-        //        {
-        //            workflowAssociationCollection = (WorkflowAssociationCollection)obj;
-        //        }
-        //        else
-        //        {
-        //            workflowAssociationCollection = new WorkflowAssociationCollection(base.Context, new ObjectPathProperty(base.Context, base.Path, "WorkflowAssociations"));
-        //            base.ObjectData.ClientObjectProperties["WorkflowAssociations"] = workflowAssociationCollection;
-        //        }
-        //        return workflowAssociationCollection;
-        //    }
-        //}
+        [Remote]
+        public WorkflowAssociationCollection WorkflowAssociations
+        {
+            get
+            {
+                object obj;
+                WorkflowAssociationCollection workflowAssociationCollection;
+                if (base.ObjectData.ClientObjectProperties.TryGetValue("WorkflowAssociations", out obj))
+                {
+                    workflowAssociationCollection = (WorkflowAssociationCollection)obj;
+                }
+                else
+                {
+                    workflowAssociationCollection = new WorkflowAssociationCollection(base.Context, new ObjectPathProperty(base.Context, base.Path, "WorkflowAssociations"));
+                    base.ObjectData.ClientObjectProperties["WorkflowAssociations"] = workflowAssociationCollection;
+                }
+                return workflowAssociationCollection;
+            }
+        }
 
         //[Remote]
         //public WorkflowTemplateCollection WorkflowTemplates
@@ -1774,18 +1775,18 @@ namespace Microsoft.SharePoint.Client.NetCore
                     base.UpdateClientObjectPropertyType("Author", this.Author, reader);
                     this.Author.FromJson(reader);
                     break;
-                //case "AvailableContentTypes":
-                //    flag = true;
-                //    reader.ReadName();
-                //    base.UpdateClientObjectPropertyType("AvailableContentTypes", this.AvailableContentTypes, reader);
-                //    this.AvailableContentTypes.FromJson(reader);
-                //    break;
-                //case "AvailableFields":
-                //    flag = true;
-                //    reader.ReadName();
-                //    base.UpdateClientObjectPropertyType("AvailableFields", this.AvailableFields, reader);
-                //    this.AvailableFields.FromJson(reader);
-                //    break;
+                case "AvailableContentTypes":
+                    flag = true;
+                    reader.ReadName();
+                    base.UpdateClientObjectPropertyType("AvailableContentTypes", this.AvailableContentTypes, reader);
+                    this.AvailableContentTypes.FromJson(reader);
+                    break;
+                case "AvailableFields":
+                    flag = true;
+                    reader.ReadName();
+                    base.UpdateClientObjectPropertyType("AvailableFields", this.AvailableFields, reader);
+                    this.AvailableFields.FromJson(reader);
+                    break;
                 case "Configuration":
                     flag = true;
                     reader.ReadName();
@@ -1796,22 +1797,22 @@ namespace Microsoft.SharePoint.Client.NetCore
                     reader.ReadName();
                     base.ObjectData.Properties["ContainsConfidentialInfo"] = reader.ReadBoolean();
                     break;
-                //case "ContentTypes":
-                //    flag = true;
-                //    reader.ReadName();
-                //    base.UpdateClientObjectPropertyType("ContentTypes", this.ContentTypes, reader);
-                //    this.ContentTypes.FromJson(reader);
-                //    break;
+                case "ContentTypes":
+                    flag = true;
+                    reader.ReadName();
+                    base.UpdateClientObjectPropertyType("ContentTypes", this.ContentTypes, reader);
+                    this.ContentTypes.FromJson(reader);
+                    break;
                 case "Created":
                     flag = true;
                     reader.ReadName();
                     base.ObjectData.Properties["Created"] = reader.ReadDateTime();
                     break;
-                //case "CurrentChangeToken":
-                //    flag = true;
-                //    reader.ReadName();
-                //    base.ObjectData.Properties["CurrentChangeToken"] = reader.Read<ChangeToken>();
-                //    break;
+                case "CurrentChangeToken":
+                    flag = true;
+                    reader.ReadName();
+                    base.ObjectData.Properties["CurrentChangeToken"] = reader.Read<ChangeToken>();
+                    break;
                 case "CurrentUser":
                     flag = true;
                     reader.ReadName();
@@ -1834,12 +1835,12 @@ namespace Microsoft.SharePoint.Client.NetCore
                     reader.ReadName();
                     base.ObjectData.Properties["Description"] = reader.ReadString();
                     break;
-                //case "DescriptionResource":
-                //    flag = true;
-                //    reader.ReadName();
-                //    base.UpdateClientObjectPropertyType("DescriptionResource", this.DescriptionResource, reader);
-                //    this.DescriptionResource.FromJson(reader);
-                //    break;
+                case "DescriptionResource":
+                    flag = true;
+                    reader.ReadName();
+                    base.UpdateClientObjectPropertyType("DescriptionResource", this.DescriptionResource, reader);
+                    this.DescriptionResource.FromJson(reader);
+                    break;
                 case "DesignerDownloadUrlForCurrentUser":
                     flag = true;
                     reader.ReadName();
@@ -1875,12 +1876,12 @@ namespace Microsoft.SharePoint.Client.NetCore
                     reader.ReadName();
                     base.ObjectData.Properties["EnableMinimalDownload"] = reader.ReadBoolean();
                     break;
-                //case "EventReceivers":
-                //    flag = true;
-                //    reader.ReadName();
-                //    base.UpdateClientObjectPropertyType("EventReceivers", this.EventReceivers, reader);
-                //    this.EventReceivers.FromJson(reader);
-                //    break;
+                case "EventReceivers":
+                    flag = true;
+                    reader.ReadName();
+                    base.UpdateClientObjectPropertyType("EventReceivers", this.EventReceivers, reader);
+                    this.EventReceivers.FromJson(reader);
+                    break;
                 case "ExcludeFromOfflineClient":
                     flag = true;
                     reader.ReadName();
@@ -1892,18 +1893,18 @@ namespace Microsoft.SharePoint.Client.NetCore
                 //    base.UpdateClientObjectPropertyType("Features", this.Features, reader);
                 //    this.Features.FromJson(reader);
                 //    break;
-                //case "Fields":
-                //    flag = true;
-                //    reader.ReadName();
-                //    base.UpdateClientObjectPropertyType("Fields", this.Fields, reader);
-                //    this.Fields.FromJson(reader);
-                //    break;
-                //case "Folders":
-                //    flag = true;
-                //    reader.ReadName();
-                //    base.UpdateClientObjectPropertyType("Folders", this.Folders, reader);
-                //    this.Folders.FromJson(reader);
-                //    break;
+                case "Fields":
+                    flag = true;
+                    reader.ReadName();
+                    base.UpdateClientObjectPropertyType("Fields", this.Fields, reader);
+                    this.Fields.FromJson(reader);
+                    break;
+                case "Folders":
+                    flag = true;
+                    reader.ReadName();
+                    base.UpdateClientObjectPropertyType("Folders", this.Folders, reader);
+                    this.Folders.FromJson(reader);
+                    break;
                 case "Id":
                     flag = true;
                     reader.ReadName();
@@ -1929,18 +1930,18 @@ namespace Microsoft.SharePoint.Client.NetCore
                     reader.ReadName();
                     base.ObjectData.Properties["LastItemUserModifiedDate"] = reader.ReadDateTime();
                     break;
-                //case "Lists":
-                //    flag = true;
-                //    reader.ReadName();
-                //    base.UpdateClientObjectPropertyType("Lists", this.Lists, reader);
-                //    this.Lists.FromJson(reader);
-                //    break;
-                //case "ListTemplates":
-                //    flag = true;
-                //    reader.ReadName();
-                //    base.UpdateClientObjectPropertyType("ListTemplates", this.ListTemplates, reader);
-                //    this.ListTemplates.FromJson(reader);
-                //    break;
+                case "Lists":
+                    flag = true;
+                    reader.ReadName();
+                    base.UpdateClientObjectPropertyType("Lists", this.Lists, reader);
+                    this.Lists.FromJson(reader);
+                    break;
+                case "ListTemplates":
+                    flag = true;
+                    reader.ReadName();
+                    base.UpdateClientObjectPropertyType("ListTemplates", this.ListTemplates, reader);
+                    this.ListTemplates.FromJson(reader);
+                    break;
                 case "MasterUrl":
                     flag = true;
                     reader.ReadName();
@@ -1983,11 +1984,11 @@ namespace Microsoft.SharePoint.Client.NetCore
                     base.UpdateClientObjectPropertyType("ParentWeb", this.ParentWeb, reader);
                     this.ParentWeb.FromJson(reader);
                     break;
-                //case "ResourcePath":
-                //    flag = true;
-                //    reader.ReadName();
-                //    base.ObjectData.Properties["ResourcePath"] = reader.Read<ResourcePath>();
-                //    break;
+                case "ResourcePath":
+                    flag = true;
+                    reader.ReadName();
+                    base.ObjectData.Properties["ResourcePath"] = reader.Read<ResourcePath>();
+                    break;
                 case "PreviewFeaturesEnabled":
                     flag = true;
                     reader.ReadName();
@@ -2032,12 +2033,12 @@ namespace Microsoft.SharePoint.Client.NetCore
                     base.UpdateClientObjectPropertyType("RoleDefinitions", this.RoleDefinitions, reader);
                     this.RoleDefinitions.FromJson(reader);
                     break;
-                //case "RootFolder":
-                //    flag = true;
-                //    reader.ReadName();
-                //    base.UpdateClientObjectPropertyType("RootFolder", this.RootFolder, reader);
-                //    this.RootFolder.FromJson(reader);
-                //    break;
+                case "RootFolder":
+                    flag = true;
+                    reader.ReadName();
+                    base.UpdateClientObjectPropertyType("RootFolder", this.RootFolder, reader);
+                    this.RootFolder.FromJson(reader);
+                    break;
                 case "SaveSiteAsTemplateEnabled":
                     flag = true;
                     reader.ReadName();
@@ -2074,12 +2075,12 @@ namespace Microsoft.SharePoint.Client.NetCore
                     reader.ReadName();
                     base.ObjectData.Properties["SiteLogoUrl"] = reader.ReadString();
                     break;
-                //case "SiteUserInfoList":
-                //    flag = true;
-                //    reader.ReadName();
-                //    base.UpdateClientObjectPropertyType("SiteUserInfoList", this.SiteUserInfoList, reader);
-                //    this.SiteUserInfoList.FromJson(reader);
-                //    break;
+                case "SiteUserInfoList":
+                    flag = true;
+                    reader.ReadName();
+                    base.UpdateClientObjectPropertyType("SiteUserInfoList", this.SiteUserInfoList, reader);
+                    this.SiteUserInfoList.FromJson(reader);
+                    break;
                 case "SiteUsers":
                     flag = true;
                     reader.ReadName();
@@ -2148,12 +2149,12 @@ namespace Microsoft.SharePoint.Client.NetCore
                     reader.ReadName();
                     base.ObjectData.Properties["Url"] = reader.ReadString();
                     break;
-                //case "UserCustomActions":
-                //    flag = true;
-                //    reader.ReadName();
-                //    base.UpdateClientObjectPropertyType("UserCustomActions", this.UserCustomActions, reader);
-                //    this.UserCustomActions.FromJson(reader);
-                //    break;
+                case "UserCustomActions":
+                    flag = true;
+                    reader.ReadName();
+                    base.UpdateClientObjectPropertyType("UserCustomActions", this.UserCustomActions, reader);
+                    this.UserCustomActions.FromJson(reader);
+                    break;
                 case "Webs":
                     flag = true;
                     reader.ReadName();
@@ -2165,18 +2166,18 @@ namespace Microsoft.SharePoint.Client.NetCore
                     reader.ReadName();
                     base.ObjectData.Properties["WebTemplate"] = reader.ReadString();
                     break;
-                //case "WorkflowAssociations":
-                //    flag = true;
-                //    reader.ReadName();
-                //    base.UpdateClientObjectPropertyType("WorkflowAssociations", this.WorkflowAssociations, reader);
-                //    this.WorkflowAssociations.FromJson(reader);
-                //    break;
-                //case "WorkflowTemplates":
-                //    flag = true;
-                //    reader.ReadName();
-                //    base.UpdateClientObjectPropertyType("WorkflowTemplates", this.WorkflowTemplates, reader);
-                //    this.WorkflowTemplates.FromJson(reader);
-                //    break;
+                case "WorkflowAssociations":
+                    flag = true;
+                    reader.ReadName();
+                    base.UpdateClientObjectPropertyType("WorkflowAssociations", this.WorkflowAssociations, reader);
+                    this.WorkflowAssociations.FromJson(reader);
+                    break;
+                    //case "WorkflowTemplates":
+                    //    flag = true;
+                    //    reader.ReadName();
+                    //    base.UpdateClientObjectPropertyType("WorkflowTemplates", this.WorkflowTemplates, reader);
+                    //    this.WorkflowTemplates.FromJson(reader);
+                    //    break;
             }
             return flag;
         }

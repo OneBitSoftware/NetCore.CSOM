@@ -68,7 +68,7 @@ namespace Microsoft.SharePoint.Client.NetCore.Runtime
             }
             catch
             {
-                return "Resource not available yet in the .NET Core port";
+                return "Resources and error messages are not available yet in the .NET Core port. If you see this message, an error has been thrown and the error message itself could not be extracted. Oh well.";
             }
         }
 
@@ -84,7 +84,7 @@ namespace Microsoft.SharePoint.Client.NetCore.Runtime
 
         private static MethodInfo FindDls()
         {
-            //Edited for .NET Core
+            //Edited for .NET Core - no registry in .NET Core
             //MethodInfo result;
             MethodInfo result = null;
 
