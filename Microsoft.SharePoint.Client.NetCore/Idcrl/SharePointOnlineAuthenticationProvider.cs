@@ -59,9 +59,7 @@ namespace Microsoft.SharePoint.Client.NetCoreIdcrl
             }
         }
 
-        //Edited for .NET Core - Changed from SecureString to string
-        //public string GetAuthenticationCookie(Uri url, string username, SecureString password, bool alwaysThrowOnFailure, EventHandler<SharePointOnlineCredentialsWebRequestEventArgs> executingWebRequest)
-        public string GetAuthenticationCookie(Uri url, string username, string password, bool alwaysThrowOnFailure, EventHandler<SharePointOnlineCredentialsWebRequestEventArgs> executingWebRequest)
+        public string GetAuthenticationCookie(Uri url, string username, SecureString password, bool alwaysThrowOnFailure, EventHandler<SharePointOnlineCredentialsWebRequestEventArgs> executingWebRequest)
         {
             if (url == null)
             {
@@ -108,8 +106,7 @@ namespace Microsoft.SharePoint.Client.NetCoreIdcrl
                 }
                 IdcrlAuth idcrlAuth = new IdcrlAuth(env, executingWebRequest);
                 //Edited for .NET Core - Changed from SecureString to string
-                //string password2 = SharePointOnlineAuthenticationProvider.FromSecureString(password);
-                string password2 = password;
+                string password2 = SharePointOnlineAuthenticationProvider.FromSecureString(password);
                 string serviceToken = idcrlAuth.GetServiceToken(username, password2, idcrlHeader.ServiceTarget, idcrlHeader.ServicePolicy);
                 if (!string.IsNullOrEmpty(serviceToken))
                 {
@@ -364,10 +361,9 @@ namespace Microsoft.SharePoint.Client.NetCoreIdcrl
 
         private static string FromSecureString(SecureString value)
         {
-            //Edited for .NET Core
-            //IntPtr intPtr = Marshal.SecureStringToBSTR(value);
+            //Edited for .NET Core - was using legacy Framework API
+            //var intPtr = Marshal.StringToBSTR(value);
             var intPtr = SecureStringMarshal.SecureStringToGlobalAllocUnicode(value);
-            //var intPtr = SecureStringMarshal.SecureStringToCoTaskMemUnicode(value);
             if (intPtr == IntPtr.Zero)
             {
                 return string.Empty;
@@ -375,11 +371,15 @@ namespace Microsoft.SharePoint.Client.NetCoreIdcrl
             string result;
             try
             {
-                result = Marshal.PtrToStringBSTR(intPtr);
+                //Edited for .NET Core - was using legacy Framework API
+                //result = Marshal.PtrToStringBSTR(intPtr);
+                result = Marshal.PtrToStringUni(intPtr);
             }
             finally
             {
-                Marshal.FreeBSTR(intPtr);
+                //Edited for .NET Core - was using legacy Framework API
+                //Marshal.ZeroFreeBSTR(intPtr);
+                Marshal.ZeroFreeGlobalAllocUnicode(intPtr);
             }
             return result;
         }

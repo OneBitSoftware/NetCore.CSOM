@@ -30,7 +30,6 @@ namespace Microsoft.SharePoint.Client.NetCore.Runtime
         private string m_userName;
 
         private SecureString m_password;
-        private string m_passwordString;
 
         private object m_lock = new object();
 
@@ -54,15 +53,7 @@ namespace Microsoft.SharePoint.Client.NetCore.Runtime
             }
         }
 
-        internal string PasswordString
-        {
-            get
-            {
-                return this.m_passwordString;
-            }
-        }
-
-        public SharePointOnlineCredentials(string username, SecureString password, string passwordString)
+        public SharePointOnlineCredentials(string username, SecureString password)
         {
             if (string.IsNullOrEmpty(username))
             {
@@ -80,7 +71,6 @@ namespace Microsoft.SharePoint.Client.NetCore.Runtime
             SharePointOnlineAuthenticationModule.EnsureRegistered();
             this.m_userName = username;
             this.m_password = password;
-            this.m_passwordString = passwordString;
         }
 
         public NetworkCredential GetCredential(Uri uri, string authType)
@@ -122,9 +112,7 @@ namespace Microsoft.SharePoint.Client.NetCore.Runtime
             if (refresh)
             {
                 ISharePointOnlineAuthenticationProvider sharePointOnlineAuthenticationProvider = SharePointOnlineAuthenticationProviderHelper.CreateDefaultProvider();
-                //Edited for .NET Core - changed to passwordString
-                //text = sharePointOnlineAuthenticationProvider.GetAuthenticationCookie(uri, this.m_userName, this.m_password, alwaysThrowOnFailure, this.ExecutingWebRequest);
-                text = sharePointOnlineAuthenticationProvider.GetAuthenticationCookie(uri, this.m_userName, this.m_passwordString, alwaysThrowOnFailure, this.ExecutingWebRequest);
+                text = sharePointOnlineAuthenticationProvider.GetAuthenticationCookie(uri, this.m_userName, this.m_password, alwaysThrowOnFailure, this.ExecutingWebRequest);
                 if (!string.IsNullOrEmpty(text))
                 {
                     ClientULS.SendTraceTag(3454917u, ClientTraceCategory.Authentication, ClientTraceLevel.Medium, "Put cookie in cache for URL {0}", new object[]

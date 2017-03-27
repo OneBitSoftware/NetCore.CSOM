@@ -18,6 +18,7 @@ namespace NetCore.Console
         {
             System.Console.WriteLine();
             System.Console.WriteLine("Operating system info: " + RuntimeInformation.OSDescription);
+            System.Console.WriteLine(".NET Version: " + RuntimeInformation.FrameworkDescription);
             System.Console.WriteLine();
 
             // Set url and account
@@ -34,7 +35,7 @@ namespace NetCore.Console
 
             //Setup
             var context = new ClientContext(url);
-            context.Credentials = new SharePointOnlineCredentials(userName, securePassword, password);
+            context.Credentials = new SharePointOnlineCredentials( userName, securePassword);
 
             //CSOM for .NET Core
             var site = context.Site;
@@ -48,7 +49,8 @@ namespace NetCore.Console
                 w => w.PreviewFeaturesEnabled, 
                 w => w.QuickLaunchEnabled,
                 w => w.SiteUsers,
-                w => w.Lists);
+                w => w.Lists
+                );
 
             //Execute...
             System.Console.WriteLine();
