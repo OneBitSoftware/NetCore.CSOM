@@ -36,7 +36,7 @@ namespace NetCore.Console
 
             //Setup
             var context = new ClientContext(url);
-            context.Credentials = new SharePointOnlineCredentials( userName, securePassword);
+            context.Credentials = new SharePointOnlineCredentials(userName, securePassword);
 
             //CSOM for .NET Core - get stuff
             var site = context.Site;
@@ -90,13 +90,17 @@ namespace NetCore.Console
             }
             System.Console.WriteLine();
 
-            foreach (var list in web.Lists)
+            foreach (var resolvedList in web.Lists)
             {
-                System.Console.WriteLine("\t Web List:" + list.Title + " item count: " + list.ItemCount);
+                System.Console.WriteLine("\t Web List:" + resolvedList.Title + " item count: " + resolvedList.ItemCount);
             }
 
-
             System.Console.WriteLine();
+
+            // Delete the created list
+            List listToDelete = web.Lists.GetByTitle("List" + uniqueString);
+            listToDelete.DeleteObject();
+            context.ExecuteQuery();
 
             System.Console.WriteLine("CSOM calls in .NET Core completed. THIS JUST HAPPENED!.");
             if (RuntimeInformation.OSDescription.StartsWith("Microsoft"))
