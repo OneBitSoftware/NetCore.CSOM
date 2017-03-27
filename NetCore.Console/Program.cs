@@ -22,7 +22,7 @@ namespace NetCore.Console
             System.Console.WriteLine();
 
             // Set url and account
-            #region Get Password
+            #region Set up account and data
             string url = "https://pnprocks.sharepoint.com";
             var userName = "admin@pnprocks.onmicrosoft.com";
             SecureString securePassword = new SecureString();
@@ -30,14 +30,15 @@ namespace NetCore.Console
             foreach (char item in password)
             {
                 securePassword.AppendChar(item);
-            } 
+            }
+            var uniqueString = DateTime.Now.Ticks;
             #endregion
 
             //Setup
             var context = new ClientContext(url);
             context.Credentials = new SharePointOnlineCredentials( userName, securePassword);
 
-            //CSOM for .NET Core
+            //CSOM for .NET Core - get stuff
             var site = context.Site;
             var web = context.Web;
             context.Load(site);
@@ -48,10 +49,21 @@ namespace NetCore.Console
                 w => w.ServerRelativeUrl,
                 w => w.PreviewFeaturesEnabled, 
                 w => w.QuickLaunchEnabled,
-                w => w.SiteUsers,
-                w => w.Lists
+                w => w.SiteUsers
                 );
 
+            // Create a new list
+            var listCreationInfo = new ListCreationInformation();
+            listCreationInfo.Title = "List" + uniqueString;
+            listCreationInfo.TemplateType = (int)ListTemplateType.GenericList;
+            List createdList = web.Lists.Add(listCreationInfo);
+            createdList.Description = "New Description " + uniqueString;
+            createdList.Update();
+
+            // Load all lists with include lambda
+            context.Load(web.Lists,
+                        lists => lists.Include(list => list.Title,
+                                               list => list.ItemCount));
             //Execute...
             System.Console.WriteLine();
             System.Console.WriteLine("Getting data for: " + url);
